@@ -1,0 +1,21 @@
+{% load currency_filters %}
+{% load i18n %}
+
+
+    {% comment %}
+    <strong>{% trans "Basket total:" %}</strong>
+    {% if request.basket.is_tax_known %}
+        {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+    {% else %}
+        {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+    {% endif %}
+    {% endcomment %}
+
+    <li class="dropdown nav-item">
+        <a href="{% url 'basket:summary' %}" class="btn"  ><i class="icon-shopping-cart icon-larger"></i></a>
+        <ul class="dropdown-menu shift-left">
+            <li>{% include "oscar/basket/partials/basket_quick.html" %}</li>
+        </ul>
+    </li>
+
+

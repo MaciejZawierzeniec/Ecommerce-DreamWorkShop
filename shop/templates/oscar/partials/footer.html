@@ -1,0 +1,27 @@
+{% load i18n %}
+<footer>
+    {% block footer %}
+	<div class="container">
+		<div class="col-sm-3 col-md-3 text-center">
+			<a href="{{ page.url }}">{{ page.title }}
+			<img class="footer-logo" src="/static/oscar/img/logo_white.png"></a>
+		</div>
+		<div class="col-sm-3 col-md-3 mini-menu text-center">
+			<p>O nas</p>
+			<p>Kontakt</p>
+			<p>Polityka prywatności</p>
+		</div>
+		<div class="col-sm-3 col-md-3 contact-inner text-center">
+			<p>Pracownia Dream</p>
+			<p>Kod Miasto</p>
+			<p>Ulica</p>
+			<p>Mail, telefon</p>
+		</div>
+
+		<div class=" col-sm-2 col-md-2 contact-inner text-center">
+			<a href="https://pl-pl.facebook.com/pracownia.dream"><p>Facebook</p></a>
+			<a href="https://www.instagram.com/kingazawierzeniec/"><p>Instagram</p></a>
+		</div>
+	</div>
+    {% endblock %}
+</footer>

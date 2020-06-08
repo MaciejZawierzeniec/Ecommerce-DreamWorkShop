@@ -1,0 +1,21 @@
+{% load currency_filters %}
+{% load category_tags %}
+{% load i18n %}
+{% load flatpages %}
+
+
+
+<ul class="nav navbar-nav nav-main">
+    {% get_flatpages as flatpages %}
+      {% for page in flatpages %}
+          {% if page.title == "O nas" %}
+            <li class="nav-item flip back {% if request.path == '/main/' %}active{% endif %}"><a href="{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
+      {% endfor %}
+
+      {% for page in flatpages %}
+          {% if page.title == "Kontakt" %}
+            <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}"><a href="{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
+      {% endfor %}
+</ul>

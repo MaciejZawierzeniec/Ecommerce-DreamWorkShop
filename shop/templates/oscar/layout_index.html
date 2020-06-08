@@ -1,0 +1,230 @@
+{% extends "oscar/base.html" %}
+{% load staticfiles %}
+
+
+{% block styles %}
+    {% comment %}
+        If you are developing Oscar's CSS, or overriding Oscar's CSS
+        files in your project, then set OSCAR_USE_LESS = True in your
+        settings file. This will enable the on-the-fly less compiler.
+    {% endcomment %}
+    {% if use_less %}
+        <link rel="stylesheet/less" type="text/css" href="{% static "oscar/less/styles.less" %}" />
+    {% else %}
+        <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles_index.css" %}" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    {% endif %}
+{% endblock %}
+
+{% block layout %}
+
+
+    <header>
+
+    </header>
+
+    {# Main content of page - other layout templates may override this block #}
+    {% block content_wrapper %}
+
+    <div class="grid-x-social">
+        <a href="https://pl-pl.facebook.com/pracownia.dream"><img src="/static/icons/facebook.png" class="social-icon"></a>
+        <a href="https://www.instagram.com/kingazawierzeniec/"><img src="/static/icons/instagram.png" class="social-icon"></a>
+    </div>
+
+    <a href="{{ page.url }}#panel_2">
+        <div class="row slide-right slide-left">
+            <div class="hide col-xs-6 text-center"><h1>Sekcja 1</h1></div>
+        </div>
+    </a>
+    <a href="{{ page.url }}#panel_3">
+        <div class="row top25 slide-right slide-left">
+            <div class="hide col-xs-6 text-center"><h1>Sekcja 2</h1></div>
+        </div>
+    </a>
+    <a href="{{ page.url }}#panel_4">
+        <div class="row top50 slide-right slide-left">
+            <div class="hide col-xs-6 text-center"><h1>Sekcja 3</h1></div>
+        </div>
+    </a>
+    <a href="{{ page.url }}#home_footer">
+        <div class="row top75 slide-right slide-left">
+            <div class="hide col-xs-6 text-center"><h1>Sekcja 4</h1></div>
+        </div>
+    </a>
+
+    <div id="panel_1" class="panel" data-color="first">
+        <div class ="grid-x">
+            <div class="menu-btn" onclick="disable();">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <a style="z-index: 11;" href="{{ homepage_url }}">{{ page.title }}
+                <div class="menu-btn"><img src="/static/oscar/img/image.png" style="width: 38px; height: 38px;"></div>
+            </a>
+        </div>
+        <div class="container">
+            <div class="text-center">
+                <img src="{% static "oscar/img/logo.png" %}" alt="My image" class="logo">
+                    <div class="shine">
+                        <h1>Pracownia Dream</h1>
+                    </div>
+                    <div class="shine delayed">
+                        <h2 id="names">Kinga Zawierzeniec</h2>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="panel_2" class="panel" data-color="second">
+        <div class="container-fluid">
+            <div class="col-lg-6">
+                <div data-aos="fade-right"
+                     data-aos-offset="200"
+                     data-aos-duration="2000"
+                     mirror="true">
+                    <div class="font-title text-center">Lorem Ipsum</div>
+                    <h3 class="text-center m5 plr2"><i>dolor sit amet, consectetur adipiscing elit. Nam at ipsum nulla. In hac habitasse platea dictumst. Quisque ullamcorper, enim eu ullamcorper finibus, quam nisi pulvinar massa, sit amet interdum elit ligula vitae lectus.</i></h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 h50">
+                <div class="picture-container media-shrink">
+                    <div data-aos="fade-down-right"
+                         data-aos-offset="200"
+                         data-aos-duration="1500"
+                         mirror="true">
+                         <div id="picture-box-cats"><img src="/static/oscar/img/cat.png" style="max-width: 100%; max-height: 100%;"></div>
+                    </div>
+                    <div data-aos="fade-down-left"
+                         data-aos-offset="200"
+                         data-aos-duration="1000"
+                         mirror="true">
+                         <div id="picture-box-dog"><img src="/static/oscar/img/dog.png" style="max-width: 100%; max-height: 100%;"></div>
+                    </div>
+                    <div data-aos="fade-up"
+                         data-aos-offset="200"
+                         data-aos-duration="1500"
+                         mirror="true">
+                         <div id="picture-box-leafs"><img src="/static/oscar/img/leafs.png" style="max-width: 100%; max-height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="panel_3" class="panel" data-color="third">
+        <div class="container-fluid">
+            <div class="col-lg-6 col-sm-12 col-lg-push-6">
+                <div data-aos="fade-left"
+                     data-aos-offset="200"
+                     data-aos-duration="2000"
+                     mirror="true">
+                    <div class="font-title text-center">Lorem Ipsum</div>
+                    <h3 class="text-center m5 plr2"><i>dolor sit amet, consectetur adipiscing elit. Nam at ipsum nulla. In hac habitasse platea dictumst. Quisque ullamcorper, enim eu ullamcorper finibus, quam nisi pulvinar massa, sit amet interdum elit ligula vitae lectus.</i></h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 h50 col-lg-pull-6">
+                <div class="picture-container media-shrink">
+                    <div data-aos="fade-down"
+                         data-aos-offset="200"
+                         data-aos-duration="1000"
+                         mirror="true">
+                        <div id="picture-box-candle-one"><img src="/static/oscar/img/boxes.png" style="width: 360px; height: 300px;">
+                            <div class="candle shrink">
+                                <div class="trans">
+                                    <div class="flame">
+                                        <div class="shadows"></div>
+                                        <div class="top"></div>
+                                        <div class="middle"></div>
+                                        <div class="bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="candle2 shrink">
+                                <div class="trans">
+                                    <div class="flame">
+                                        <div class="shadows"></div>
+                                        <div class="top"></div>
+                                        <div class="middle"></div>
+                                        <div class="bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="candle3 shrink">
+                                <div class="trans">
+                                    <div class="flame">
+                                        <div class="shadows"></div>
+                                        <div class="top"></div>
+                                        <div class="middle"></div>
+                                        <div class="bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="panel_4" class="panel" data-color="fourth">
+        <div class="container-fluid">
+            <div class="col-lg-6">
+                <div data-aos="fade-right"
+                     data-aos-offset="200"
+                     data-aos-duration="2000"
+                     mirror="true">
+                    <div class="font-title text-center">Lorem Ipsum</div>
+                    <h3 class="text-center m5 plr2"><i>dolor sit amet, consectetur adipiscing elit. Nam at ipsum nulla. In hac habitasse platea dictumst. Quisque ullamcorper, enim eu ullamcorper finibus, quam nisi pulvinar massa, sit amet interdum elit ligula vitae lectus.</i></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="home_footer" class="home-footer">
+        <h2 style="font-weight: 100; color: white;">
+            Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Nam at ipsum nulla.</br>
+            In hac habitasse platea dictumst. Quisque ullamcorper,</br>
+            enim eu ullamcorper finibus...
+        </h2>
+        <a href="{{ homepage_url }}">{{ page.title }}
+            <button class="button type1">
+                Sklep
+            </button>
+        </a>
+    </div>
+
+    {% endblock %}
+    {% include "oscar/partials/footer.html" %}
+{% endblock %}
+
+{% block cdn_scripts %}
+  {{ block.super }}
+  {% if use_less and debug %}
+    {# Load the on-the-fly less compiler. Never do this in production. #}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+  {% endif %}
+{% endblock %}
+
+{# Local scripts #}
+{% block scripts %}
+    {{ block.super }}
+    <!-- Twitter Bootstrap -->
+    <script src="{% static "oscar/js/bootstrap3/bootstrap.min.js" %}"></script>
+    <!-- Oscar -->
+    <script src="{% static "oscar/js/oscar/ui.js" %}"></script>
+    <script src="{% static "oscar/js/scrollColor.js" %}"></script>
+    <script src="{% static "oscar/js/hamburger.js" %}"></script>
+    <script src="{% static "oscar/js/candles.js" %}"></script>
+    <script src="{% static "oscar/js/anchorSlide.js" %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+{% endblock %}
+
+{% block extrascripts %}
+    {% include "oscar/partials/extrascripts.html" %}
+    {{ block.super }}
+{% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.init();
+{% endblock %}
